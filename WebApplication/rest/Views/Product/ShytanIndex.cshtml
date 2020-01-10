@@ -1,0 +1,38 @@
+﻿@model model.ViewModels.ProductUserViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+<div>
+    @foreach (var item in Model.Products)
+    {
+        
+        <div class="row" style="justify-content: center; float: left; border: 2px solid black">
+            <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Id</p></div>
+            <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Name</p></div>
+            <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Price</p></div>
+            <div class="col-md-3" style="justify-content: center; float: none; display: flex;"><p style="margin: 5px">@item.Description</p></div>
+        </div>
+    }
+</div>
+<div>
+    @foreach (var item in Model.Users )
+    {
+    <div class="row" style="justify-content: center; float: left; border: 2px solid black">
+        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Login</p></div>
+        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Age</p></div>
+    </div>
+        }
+    </div>
+
+</body>
+</html>

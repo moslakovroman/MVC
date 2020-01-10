@@ -1,0 +1,32 @@
+﻿@model IEnumerable<model.ViewModels.ProductUsersPaymentViewModel2>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+<div>
+    @foreach (var item in Model)
+    {
+        
+    <div class="row" style="justify-content: center; float: left; border: 2px solid black">
+        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Name</p></div>
+        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Quantity</p></div>
+        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Price</p></div>
+        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Login</p></div>
+        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Age</p></div>
+        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Description</p></div>
+        <div class="col-md-3" style="justify-content: center; float: none; display: flex;"><p style="margin: 5px">@item.Sum</p></div>
+    </div>
+    }
+</div>
+    
+</body>
+</html>

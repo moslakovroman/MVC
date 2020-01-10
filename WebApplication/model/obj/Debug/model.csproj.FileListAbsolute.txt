@@ -1,0 +1,5 @@
+D:\C#\Programming\C# practice\11\WebApplication\model\bin\Debug\model.dll
+D:\C#\Programming\C# practice\11\WebApplication\model\bin\Debug\model.pdb
+D:\C#\Programming\C# practice\11\WebApplication\model\obj\Debug\model.csprojAssemblyReference.cache
+D:\C#\Programming\C# practice\11\WebApplication\model\obj\Debug\model.dll
+D:\C#\Programming\C# practice\11\WebApplication\model\obj\Debug\model.pdb
