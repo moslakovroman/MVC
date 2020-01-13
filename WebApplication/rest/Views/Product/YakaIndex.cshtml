@@ -9,24 +9,42 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/Content/bootstrap.min.css"/>
     <title></title>
 </head>
 <body>
-<div>
+
+<div class="" style="justify-content: center; display: block">
+    <div class="row" style="justify-content: space-around; display: flex; float: none; border: 2px solid black">
+        <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black"><h5 style="margin: 5px; font-weight: bold">Название продукта</h5></div>
+        <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black"><h5 style="margin: 5px; font-weight: bold">Количество</h5></div>
+        <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black"><h5 style="margin: 5px; font-weight: bold">Цена за шт.</h5></div>
+        <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black"><h5 style="margin: 5px; font-weight: bold">Имя пользователя</h5></div>
+        <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black"><h5 style="margin: 5px; font-weight: bold">Возраст пользователя</h5></div>
+        <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black"><h5 style="margin: 5px; font-weight: bold">Описание продукта</h5></div>
+        <div class="col-md-3" style="justify-content: center; float: none; display: flex;"><h5 style="margin: 5px; font-weight: bold">Итоговая сумма</h5></div>
+    </div>
     @foreach (var item in Model)
     {
-        
-    <div class="row" style="justify-content: center; float: left; border: 2px solid black">
-        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Name</p></div>
-        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Quantity</p></div>
-        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Price</p></div>
-        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Login</p></div>
-        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Age</p></div>
-        <div class="col-md-3" style="justify-content: center; display: flex; border-bottom: 2px solid black"><p style="margin: 5px">@item.Description</p></div>
-        <div class="col-md-3" style="justify-content: center; float: none; display: flex;"><p style="margin: 5px">@item.Sum</p></div>
-    </div>
+
+        <div class="row" style="justify-content: space-around; display: flex; float: none; border: 2px solid black">
+            <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black">
+                <p style="margin: 5px">@item.Name</p></div>
+            <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black">
+                <p style="margin: 5px">@item.Quantity</p></div>
+            <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black">
+                <p style="margin: 5px">@item.Price</p></div>
+            <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black">
+                <p style="margin: 5px">@item.Login</p></div>
+            <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black">
+                <p style="margin: 5px">@item.Age</p></div>
+            <div class="col-md-3" style="justify-content: center; float: left; display: flex; border-right: 2px solid black">
+                <p style="margin: 5px">@item.Description</p></div>
+            <div class="col-md-3" style="justify-content: center; float: none; display: flex;">
+                <p style="margin: 5px">@item.Sum</p></div>
+        </div>
     }
 </div>
-    
+
 </body>
 </html>
