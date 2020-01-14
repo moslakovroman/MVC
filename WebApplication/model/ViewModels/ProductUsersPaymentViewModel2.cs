@@ -12,6 +12,6 @@ namespace model.ViewModels
         public double Sum { get; set; }
         public int Quantity { get; set; }
 
-        public List<ProductUsersPaymentViewModel2> PaymentViewModel2 { get; set; }
+        public int PaymentId { get; set; }
     }
 }

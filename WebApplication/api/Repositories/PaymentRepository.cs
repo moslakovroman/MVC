@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Web.UI.WebControls;
 using api.Interfaces;
 using model;
 using model.ViewModels;
@@ -14,35 +16,28 @@ namespace api.Repositories
 
         public List<Payment> GetPurchase()
         {
-            //payments = new List<Payment>();
-
-            //payments.Add(new Payment()
-            //{
-            //    ProductId = 1,
-            //    Id = 3,
-            //    UserId = 3,
-            //    Quantity = 3
-            //});
-
-            //payments.Add(new Payment()
-            //{
-            //    ProductId = 2,
-            //    Id = 1,
-            //    UserId = 2,
-            //    Quantity = 5
-            //});
-
-            //payments.Add(new Payment()
-            //{
-            //    ProductId = 3,
-            //    Id = 2,
-            //    UserId = 1,
-            //    Quantity = 8
-            //});
-            return null;/*payments*/;
+            
+            return null;
         }
 
+        //private int shit(int a, int b)
+        //{
+        //    return a + b;
+        //}
+
+
         private static List<Payment> _payments = InitPayment();
+
+        public Payment GetPaymentById(int id)
+        {
+            return _payments.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void EditQuantity(int id, int quantity)
+        {
+            var item = GetPaymentById(id);
+            item.Quantity = quantity;
+        }
 
         private static List<Payment> InitPayment()
         {
@@ -53,30 +48,6 @@ namespace api.Repositories
                 new Payment() {ProductId = 3, Id = 2, UserId = 1, Quantity = 8}
             };
             
-
-            //payments.Add(new Payment()
-            //{
-            //    ProductId = 1,
-            //    Id = 3,
-            //    UserId = 3,
-            //    Quantity = 3
-            //});
-
-            //payments.Add(new Payment()
-            //{
-            //    ProductId = 2,
-            //    Id = 1,
-            //    UserId = 2,
-            //    Quantity = 5
-            //});
-
-            //payments.Add(new Payment()
-            //{
-            //    ProductId = 3,
-            //    Id = 2,
-            //    UserId = 1,
-            //    Quantity = 8
-            //});
         }
 
         private static List<User> _users = InitUsers();
@@ -90,26 +61,6 @@ namespace api.Repositories
                 new User() {Login = "holop", Age = 25, Id = 3}
             };
             
-
-            //users.Add(new User()
-            //{
-            //    Login = "lopata",
-            //    Age = 30,
-            //    Id = 1
-            //});
-            //users.Add(new User()
-            //{
-            //    Login = "chehol",
-            //    Age = 20,
-            //    Id = 2
-            //});
-            //users.Add(new User()
-            //{
-            //    Login = "holop",
-            //    Age = 25,
-            //    Id = 3
-            //});
-           
         }
 
         private static List<Product> _products = InitProducts();
@@ -123,31 +74,7 @@ namespace api.Repositories
                 new Product() { Id = 3, Name = "Monitor", Price = 500, Description = "Dell" }
             };
             
-
-            //products.Add(new Product()
-            //{
-            //    Id = 1,
-            //    Name = "Phone",
-            //    Price = 300,
-            //    Description = "Samsung"
-            //});
-            //products.Add(new Product()
-            //{
-            //    Id = 2,
-            //    Name = "Notebook",
-            //    Price = 2300,
-            //    Description = "MSI"
-            //});
-            //products.Add(new Product()
-            //{
-            //    Id = 3,
-            //    Name = "Monitor",
-            //    Price = 500,
-            //    Description = "Dell"
-            //});
-            
         }
-
         
 
         //public PaymentRepository()
@@ -240,8 +167,8 @@ namespace api.Repositories
                     Login = use.Login,
                     Age = use.Age,
                     Quantity = pay.Quantity,
-                    Sum = pro.Price * pay.Quantity
-
+                    Sum = pro.Price * pay.Quantity,
+                    PaymentId = pay.Id
                 };
           
 

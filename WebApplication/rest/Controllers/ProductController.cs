@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using api.Interfaces;
 using api.Services;
+using model.ViewModels;
 
 
 namespace rest.Controllers
@@ -41,5 +42,18 @@ namespace rest.Controllers
             var somedata = _productService.GetProductUserPaymentViewModel2();
             return View("YakaIndex", model: somedata);
         }
+        [HttpPost]
+        public ActionResult EditPayment(int id, int quantity)
+        {
+            _productService.GetEditViewModel(id,quantity);
+            return RedirectToAction("ProductUserPayment2");
+        }
+
+        [HttpGet]
+        public ActionResult EditPayment(int id)
+        {
+            return View("EditIndex",model : _productService.GetPaymentById(id));
+        }
+        
     }
 }

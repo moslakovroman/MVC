@@ -22,7 +22,8 @@ namespace api.Interfaces
 
         List<ProductUsersPaymentViewModel2> GetProductUserPaymentViewModel2();
 
-        
+        void GetEditViewModel(int id, int quantity);
+        EditViewModel GetPaymentById(int id);
 
     }
 }

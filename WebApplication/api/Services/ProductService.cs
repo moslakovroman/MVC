@@ -15,7 +15,7 @@ namespace api.Services
         private readonly IRepoProduct _productRepository;
         private readonly IRepoUser _userRepository;
         private readonly IRepoPayment _paymentRepository;
-        
+        private readonly PaymentRepository _payment;
 
         public ProductService(IRepoProduct productRepository, IRepoUser userRepository, IRepoPayment paymentRepository)
         {
@@ -57,8 +57,17 @@ namespace api.Services
 
         }
 
+        public void GetEditViewModel(int id , int quantity)
+        {
+            _paymentRepository.EditQuantity(id, quantity);
+            
+        }
+        
+        public EditViewModel GetPaymentById(int id)
+        {
+            var editpayPayment = _paymentRepository.GetPaymentById(id);
 
-
-
+            return new EditViewModel() { Id = editpayPayment.Id, Quantity = editpayPayment.Quantity };
+        }
     }
 }

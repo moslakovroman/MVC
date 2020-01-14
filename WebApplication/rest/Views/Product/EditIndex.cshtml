@@ -1,0 +1,33 @@
+﻿@model model.ViewModels.EditViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/Content/bootstrap.min.css"/>
+    <title></title>
+</head>
+<body>
+
+<div class="" style="justify-content: center; display: block">
+    <form action="/product/EditPayment" method="post">
+        <input type="hidden" name="id" value="@Model.Id"/>
+        <input type="text" name="quantity" value="@Model.Quantity"/>
+        <button type="submit" >Submit</button>
+        
+    </form>
+
+</div>
+<div>
+    
+</div>
+    <br/>
+
+<input type="submit" name="Save"/>
+</body>
+</html>
