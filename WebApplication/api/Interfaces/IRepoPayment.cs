@@ -10,7 +10,10 @@ namespace api.Interfaces
 
         List<ProductUsersPaymentViewModel2> GetPupViewModel();
 
-        void EditQuantity(int id, int quantity);
+        void EditQuantity(EditViewModel editViewModel);
         Payment GetPaymentById(int id);
+        Product GetProductByPaymentId(int id);
+        User GetUserByPaymentId(int id);
+        
     }
 }

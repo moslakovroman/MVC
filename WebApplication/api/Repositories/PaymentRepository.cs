@@ -30,15 +30,21 @@ namespace api.Repositories
 
         public Payment GetPaymentById(int id)
         {
-            return _payments.FirstOrDefault(x => x.Id == id);
+            return _payments.FirstOrDefault(x =>x.Id == id);
         }
 
-        public void EditQuantity(int id, int quantity)
+        //id - payment id
+        public Product GetProductByPaymentId(int id)
         {
-            var item = GetPaymentById(id);
-            item.Quantity = quantity;
+            var paymen = GetPaymentById(id);
+            return _products.FirstOrDefault(x => x.Id == paymen.ProductId);
         }
-
+        public User GetUserByPaymentId(int id)
+        {
+            var userr = GetPaymentById(id);
+            return _users.FirstOrDefault(x => x.Id == userr.UserId);
+        }
+        
         private static List<Payment> InitPayment()
         {
             return new List<Payment>()
@@ -152,7 +158,7 @@ namespace api.Repositories
 
         
 
-        private List<ProductUsersPaymentViewModel2> ItogViewModel;
+        
         public List<ProductUsersPaymentViewModel2> GetPupViewModel()
         { 
             
@@ -174,5 +180,20 @@ namespace api.Repositories
 
             return resault.ToList();
         }
+        public void EditQuantity(EditViewModel piy)
+        {
+            var item = GetPaymentById(piy.PaymentId);
+            item.Quantity = piy.Quantity;
+
+            var itemproduct = GetProductByPaymentId(item.Id);
+            itemproduct.Name = piy.Name;
+            itemproduct.Description = piy.Description;
+            itemproduct.Price = piy.Price;
+
+            var itemuser = GetUserByPaymentId(item.Id);
+            itemuser.Login = piy.Login;
+            itemuser.Age = piy.Age;
+        }
+        //private List<ProductUsersPaymentViewModel2> ItogViewModel;
     }
 }

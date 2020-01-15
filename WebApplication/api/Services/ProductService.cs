@@ -15,7 +15,7 @@ namespace api.Services
         private readonly IRepoProduct _productRepository;
         private readonly IRepoUser _userRepository;
         private readonly IRepoPayment _paymentRepository;
-        private readonly PaymentRepository _payment;
+
 
         public ProductService(IRepoProduct productRepository, IRepoUser userRepository, IRepoPayment paymentRepository)
         {
@@ -57,17 +57,64 @@ namespace api.Services
 
         }
 
-        public void GetEditViewModel(int id , int quantity)
+        public void GetEditViewModel(EditViewModel getEditViewModel)
         {
-            _paymentRepository.EditQuantity(id, quantity);
+            _paymentRepository.EditQuantity(getEditViewModel);
             
         }
         
-        public EditViewModel GetPaymentById(int id)
+        public Payment GetPaymentById(int id)
         {
             var editpayPayment = _paymentRepository.GetPaymentById(id);
+            
 
-            return new EditViewModel() { Id = editpayPayment.Id, Quantity = editpayPayment.Quantity };
+            return new Payment()
+            {
+                Id = editpayPayment.Id, Quantity = editpayPayment.Quantity,
+                
+            };
         }
+
+        public EditViewModel GetPaymentByAllId(int id)
+        {
+            var editpayPayment = _paymentRepository.GetPaymentById(id);
+            var editProduct = _paymentRepository.GetProductByPaymentId(id);
+            var editUser = _paymentRepository.GetUserByPaymentId(id);
+
+            return new EditViewModel()
+            {
+                PaymentId = editpayPayment.Id,
+                Quantity = editpayPayment.Quantity,
+                Description = editProduct.Description,
+                Name = editProduct.Name,
+                Price = editProduct.Price,
+                Login = editUser.Login,
+                Age = editUser.Age,
+                ProductId = editUser.Id,
+                UserId = editUser.Id
+            };
+        }
+
+        //public EditViewModel GetProductByPaymentId(int PaymentId)
+        //{
+        //    var editProduct = _paymentRepository.GetProductById(id);
+
+        //    return new EditViewModel()
+        //    {
+        //        Description = editProduct.Description,
+        //        Name = editProduct.Name,
+        //        Price = editProduct.Price
+        //    };
+        //}
+        //public EditViewModel GetUserById(int id)
+        //{
+        //    var editUser = _paymentRepository.GetUserById(id);
+
+        //    return new EditViewModel()
+        //    {
+        //        Login = editUser.Login,
+        //        Age = editUser.Age
+        //    };
+        //}
     }
 }

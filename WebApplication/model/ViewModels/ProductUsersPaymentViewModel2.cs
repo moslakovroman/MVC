@@ -11,7 +11,6 @@ namespace model.ViewModels
         public string Login { get; set; }
         public double Sum { get; set; }
         public int Quantity { get; set; }
-
         public int PaymentId { get; set; }
     }
 }

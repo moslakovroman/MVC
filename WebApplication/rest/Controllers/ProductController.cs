@@ -43,16 +43,16 @@ namespace rest.Controllers
             return View("YakaIndex", model: somedata);
         }
         [HttpPost]
-        public ActionResult EditPayment(int id, int quantity)
+        public ActionResult EditPayment(EditViewModel editViewModel)
         {
-            _productService.GetEditViewModel(id,quantity);
+            _productService.GetEditViewModel(editViewModel );
             return RedirectToAction("ProductUserPayment2");
         }
 
         [HttpGet]
         public ActionResult EditPayment(int id)
         {
-            return View("EditIndex",model : _productService.GetPaymentById(id));
+            return View("EditIndex",model : _productService.GetPaymentByAllId(id));
         }
         
     }
